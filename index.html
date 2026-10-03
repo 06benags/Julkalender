@@ -9,7 +9,6 @@
 
 <title>Julens Hemlighet</title>
 
-
 <style>
 
 /* ================================
@@ -50,10 +49,6 @@ body {
     overflow-x: hidden;
 }
 
-
-/* ================================
-   MYSIGT LJUS I BAKGRUNDEN
-   ================================ */
 
 body::before {
 
@@ -161,7 +156,6 @@ h1 {
         repeat(4, 1fr);
 
     gap: 22px;
-
 }
 
 
@@ -224,8 +218,6 @@ h1 {
 }
 
 
-/* Inner guldram */
-
 .door::before {
 
     content: "";
@@ -244,8 +236,6 @@ h1 {
 }
 
 
-/* Liten stjärna */
-
 .door::after {
 
     content: "✦";
@@ -263,8 +253,6 @@ h1 {
     opacity: 0.75;
 }
 
-
-/* Hover */
 
 .door:hover {
 
@@ -509,7 +497,7 @@ h1 {
 
 
 /* ================================
-   SPELRUTA / POPUP
+   SPELRUTA
    ================================ */
 
 .game-overlay {
@@ -545,7 +533,7 @@ h1 {
 
     width: 100%;
 
-    max-width: 550px;
+    max-width: 600px;
 
     padding: 35px 30px 30px;
 
@@ -628,6 +616,10 @@ h1 {
 }
 
 
+/* ================================
+   LUCKA 1
+   ================================ */
+
 .sequence {
 
     font-size: 32px;
@@ -678,6 +670,104 @@ h1 {
         rgba(255,220,130,0.5);
 }
 
+
+/* ================================
+   LUCKA 2
+   ================================ */
+
+.symbol-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 10px;
+
+    max-width: 420px;
+
+    margin:
+        25px auto;
+}
+
+
+.symbol-button {
+
+    aspect-ratio: 1 / 1;
+
+    border:
+        2px solid
+        rgba(220,182,94,0.65);
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    color: #fff1c4;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.symbol-button:hover {
+
+    transform: scale(1.08);
+
+    background:
+        rgba(255,220,130,0.15);
+
+    box-shadow:
+        0 0 12px
+        rgba(255,220,130,0.25);
+}
+
+
+.symbol-button.wrong {
+
+    animation:
+        shake 0.25s ease;
+
+    background:
+        rgba(180,30,40,0.35);
+}
+
+
+@keyframes shake {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* ================================
+   KNAPPAR
+   ================================ */
 
 .game-button {
 
@@ -779,14 +869,12 @@ h1 {
 .result.correct {
 
     color: #ffe58b;
-
 }
 
 
 .result.wrong {
 
     color: #ffaaa7;
-
 }
 
 
@@ -859,6 +947,16 @@ h1 {
         letter-spacing: 5px;
     }
 
+    .symbol-grid {
+
+        gap: 7px;
+    }
+
+    .symbol-button {
+
+        font-size: 24px;
+    }
+
 }
 
 </style>
@@ -869,9 +967,7 @@ h1 {
 <body>
 
 
-<!-- ================================
-     SNÖ
-     ================================ -->
+<!-- SNÖ -->
 
 <div class="snow snow1">❄</div>
 <div class="snow snow2">❄</div>
@@ -885,9 +981,7 @@ h1 {
 <div class="snow snow10">❄</div>
 
 
-<!-- ================================
-     RUBRIK
-     ================================ -->
+<!-- RUBRIK -->
 
 <h1>
 🎄 Julens Hemlighet 🎄
@@ -914,9 +1008,7 @@ h1 {
 </div>
 
 
-<!-- ================================
-     KALENDER
-     ================================ -->
+<!-- KALENDER -->
 
 <div class="calendar">
 
@@ -985,15 +1077,11 @@ h1 {
 </div>
 
 
-<!-- ================================
-     SPELRUTA
-     ================================ -->
+<!-- SPELRUTA -->
 
 <div class="game-overlay" id="gameOverlay">
 
-
     <div class="game-box">
-
 
         <button
             class="close-button"
@@ -1003,47 +1091,75 @@ h1 {
         </button>
 
 
-        <h2 class="game-title">
-            🎁 Lucka 1
-        </h2>
+        <!-- LUCKA 1 -->
 
+        <div id="game1">
 
-        <div class="game-text">
+            <h2 class="game-title">
+                🎁 Lucka 1
+            </h2>
 
-            Lös talserien:
+            <div class="game-text">
+
+                Lös talserien:
+
+            </div>
+
+            <div class="sequence">
+
+                2 – 4 – 6 – 8 – ?
+
+            </div>
+
+            <input
+                class="answer-input"
+                id="answerInput"
+                type="number"
+                placeholder="?"
+            >
+
+            <button
+                class="game-button"
+                id="answerButton"
+            >
+
+                LÖS UPPGIFTEN
+
+            </button>
+
+            <div
+                class="result"
+                id="gameResult"
+            ></div>
 
         </div>
 
 
-        <div class="sequence">
+        <!-- LUCKA 2 -->
 
-            2 – 4 – 6 – 8 – ?
+        <div id="game2" style="display:none;">
+
+            <h2 class="game-title">
+                🧩 Lucka 2
+            </h2>
+
+            <div class="game-text">
+
+                Hitta den enda symbolen som är annorlunda.
+
+            </div>
+
+            <div
+                class="symbol-grid"
+                id="symbolGrid"
+            ></div>
+
+            <div
+                class="result"
+                id="symbolResult"
+            ></div>
 
         </div>
-
-
-        <input
-            class="answer-input"
-            id="answerInput"
-            type="number"
-            placeholder="?"
-        >
-
-
-        <button
-            class="game-button"
-            id="answerButton"
-        >
-
-            LÖS UPPGIFTEN
-
-        </button>
-
-
-        <div
-            class="result"
-            id="gameResult"
-        ></div>
 
 
     </div>
@@ -1051,35 +1167,18 @@ h1 {
 </div>
 
 
-<!-- ================================
-     JAVASCRIPT
-     ================================ -->
-
 <script>
 
-
-/*
-TESTLÄGE
-
-5 betyder att lucka 1–5 är öppna.
-
-När kalendern är färdig:
-
-const TEST_DAY = 0;
-
-Då används det riktiga datumet.
-*/
-
+/* ================================
+   TESTLÄGE
+   ================================ */
 
 const TEST_DAY = 5;
 
 
-/*
-HÄMTA SENAST LÖSTA LUCKOR
-
-Detta gör att en löst lucka
-förblir löst även om sidan laddas om.
-*/
+/* ================================
+   SPARADE LÖSTA LUCKOR
+   ================================ */
 
 let solvedDoors =
     JSON.parse(
@@ -1087,9 +1186,9 @@ let solvedDoors =
     );
 
 
-/*
-RÄKNA UT VILKEN DAG SOM ÄR ÖPPEN
-*/
+/* ================================
+   RÄKNA UT ÖPPEN DAG
+   ================================ */
 
 let currentDay;
 
@@ -1124,23 +1223,23 @@ else {
 }
 
 
-/*
-HÄMTA ALLA LUCKOR
-*/
+/* ================================
+   ELEMENT
+   ================================ */
 
 const doors =
 document.querySelectorAll(".door");
-
-
-/*
-SPELRUTAN
-*/
 
 const gameOverlay =
 document.getElementById("gameOverlay");
 
 const closeGame =
 document.getElementById("closeGame");
+
+
+/* ================================
+   LUCKA 1 ELEMENT
+   ================================ */
 
 const answerInput =
 document.getElementById("answerInput");
@@ -1152,19 +1251,67 @@ const gameResult =
 document.getElementById("gameResult");
 
 
-/*
-VILKEN LUCKA SPELAS JUST NU?
-*/
+/* ================================
+   LUCKA 2 ELEMENT
+   ================================ */
 
-let currentGameDay = null;
+const symbolGrid =
+document.getElementById("symbolGrid");
+
+const symbolResult =
+document.getElementById("symbolResult");
 
 
-/*
-MARKERA EN LÖST LUCKA
-*/
+/* ================================
+   SPEL
+   ================================ */
+
+const game1 =
+document.getElementById("game1");
+
+const game2 =
+document.getElementById("game2");
+
+
+/* ================================
+   UPPDATERA LUCKA
+   ================================ */
+
+function updateDoor(door) {
+
+    const day =
+        Number(door.dataset.day);
+
+
+    if (solvedDoors.includes(day)) {
+
+        door.classList.add("solved");
+
+        door.classList.remove("locked");
+
+        door.textContent = "✓";
+
+        return;
+
+    }
+
+
+    if (day > currentDay) {
+
+        door.classList.add("locked");
+
+        door.textContent = "🔒";
+
+    }
+
+}
+
+
+/* ================================
+   MARKERA SOM LÖST
+   ================================ */
 
 function markAsSolved(day) {
-
 
     if (!solvedDoors.includes(day)) {
 
@@ -1178,53 +1325,25 @@ function markAsSolved(day) {
         JSON.stringify(solvedDoors)
     );
 
-}
 
+    doors.forEach(function(door) {
 
-/*
-UPPDATERA EN LUCKAS UTSEENDE
-*/
+        if (
+            Number(door.dataset.day) === day
+        ) {
 
-function updateDoor(door) {
+            updateDoor(door);
 
+        }
 
-    const day =
-        Number(door.dataset.day);
-
-
-    /*
-    Om luckan är löst
-    */
-
-    if (solvedDoors.includes(day)) {
-
-        door.classList.add("solved");
-
-        door.textContent = "✓";
-
-        return;
-
-    }
-
-
-    /*
-    Om luckan ännu inte är öppen
-    */
-
-    if (day > currentDay) {
-
-        door.classList.add("locked");
-
-        door.textContent = "🔒";
-
-    }
+    });
 
 }
 
 
-/*
-SÄTT UPP ALLA LUCKOR
-*/
+/* ================================
+   FÖRBERED LUCKOR
+   ================================ */
 
 doors.forEach(function(door) {
 
@@ -1241,10 +1360,6 @@ doors.forEach(function(door) {
         function() {
 
 
-            /*
-            LÅST LUCKA
-            */
-
             if (day > currentDay) {
 
                 alert(
@@ -1256,10 +1371,6 @@ doors.forEach(function(door) {
             }
 
 
-            /*
-            LUCKA 1
-            */
-
             if (day === 1) {
 
                 openGame(1);
@@ -1269,9 +1380,14 @@ doors.forEach(function(door) {
             }
 
 
-            /*
-            ÖVRIGA ÖPPNA LUCKOR
-            */
+            if (day === 2) {
+
+                openGame(2);
+
+                return;
+
+            }
+
 
             alert(
                 "🎁 Lucka "
@@ -1285,42 +1401,53 @@ doors.forEach(function(door) {
 });
 
 
-/*
-ÖPPNA SPELET
-*/
+/* ================================
+   ÖPPNA SPEL
+   ================================ */
 
 function openGame(day) {
-
-
-    currentGameDay = day;
-
-
-    gameResult.textContent = "";
-
-    gameResult.className = "result";
-
-
-    answerInput.value = "";
-
 
     gameOverlay.classList.add("show");
 
 
-    setTimeout(
-        function() {
+    game1.style.display = "none";
+
+    game2.style.display = "none";
+
+
+    if (day === 1) {
+
+        game1.style.display = "block";
+
+        gameResult.textContent = "";
+
+        gameResult.className = "result";
+
+        answerInput.value = "";
+
+        setTimeout(function() {
 
             answerInput.focus();
 
-        },
-        100
-    );
+        }, 100);
+
+    }
+
+
+    if (day === 2) {
+
+        game2.style.display = "block";
+
+        createSymbolGame();
+
+    }
 
 }
 
 
-/*
-STÄNG SPELET
-*/
+/* ================================
+   STÄNG SPEL
+   ================================ */
 
 function closeGameWindow() {
 
@@ -1335,17 +1462,11 @@ closeGame.addEventListener(
 );
 
 
-/*
-KLICKA UTANFÖR SPELRUTAN
-*/
-
 gameOverlay.addEventListener(
     "click",
     function(event) {
 
-        if (
-            event.target === gameOverlay
-        ) {
+        if (event.target === gameOverlay) {
 
             closeGameWindow();
 
@@ -1355,12 +1476,11 @@ gameOverlay.addEventListener(
 );
 
 
-/*
-KONTROLLERA SVARET
-*/
+/* ================================
+   LUCKA 1
+   ================================ */
 
 function checkAnswer() {
-
 
     const answer =
         answerInput.value.trim();
@@ -1379,16 +1499,10 @@ function checkAnswer() {
     }
 
 
-    /*
-    RÄTT SVAR
-    */
-
     if (answer === "10") {
-
 
         gameResult.textContent =
             "✨ Rätt! Luckan är löst! ✨";
-
 
         gameResult.className =
             "result correct";
@@ -1397,49 +1511,21 @@ function checkAnswer() {
         markAsSolved(1);
 
 
-        /*
-        Uppdatera lucka 1
-        */
+        setTimeout(function() {
 
-        doors.forEach(function(door) {
+            closeGameWindow();
 
-            if (
-                Number(door.dataset.day) === 1
-            ) {
-
-                updateDoor(door);
-
-            }
-
-        });
-
-
-        /*
-        Låt spelaren se resultatet
-        */
-
-        setTimeout(
-            function() {
-
-                closeGameWindow();
-
-            },
-            1400
-        );
-
+        }, 1400);
 
     }
 
     else {
 
-
         gameResult.textContent =
             "🎅 Inte riktigt... försök igen!";
 
-
         gameResult.className =
             "result wrong";
-
 
         answerInput.select();
 
@@ -1448,19 +1534,11 @@ function checkAnswer() {
 }
 
 
-/*
-KNAPPEN
-*/
-
 answerButton.addEventListener(
     "click",
     checkAnswer
 );
 
-
-/*
-ENTER PÅ TANGENTBORDET
-*/
 
 answerInput.addEventListener(
     "keydown",
@@ -1475,6 +1553,134 @@ answerInput.addEventListener(
     }
 );
 
+
+/* ================================
+   LUCKA 2
+   ================================ */
+
+function createSymbolGame() {
+
+
+    symbolGrid.innerHTML = "";
+
+    symbolResult.textContent = "";
+
+    symbolResult.className = "result";
+
+
+    /*
+    Alla symboler är lika
+    utom en.
+    */
+
+    const normalSymbol = "✦";
+
+    const oddSymbol = "✧";
+
+
+    /*
+    25 platser totalt.
+    */
+
+    const oddPosition =
+        Math.floor(
+            Math.random() * 25
+        );
+
+
+    for (
+        let i = 0;
+        i < 25;
+        i++
+    ) {
+
+
+        const button =
+            document.createElement("button");
+
+
+        button.className =
+            "symbol-button";
+
+
+        if (i === oddPosition) {
+
+            button.textContent =
+                oddSymbol;
+
+        }
+
+        else {
+
+            button.textContent =
+                normalSymbol;
+
+        }
+
+
+        button.addEventListener(
+            "click",
+            function() {
+
+
+                if (i === oddPosition) {
+
+
+                    symbolResult.textContent =
+                        "✨ Rätt! Luckan är löst! ✨";
+
+
+                    symbolResult.className =
+                        "result correct";
+
+
+                    markAsSolved(2);
+
+
+                    /*
+                    Stäng efter en kort stund.
+                    */
+
+                    setTimeout(function() {
+
+                        closeGameWindow();
+
+                    }, 1200);
+
+
+                }
+
+                else {
+
+
+                    symbolResult.textContent =
+                        "🎅 Inte riktigt... försök igen!";
+
+
+                    symbolResult.className =
+                        "result wrong";
+
+
+                    button.classList.add("wrong");
+
+
+                    setTimeout(function() {
+
+                        button.classList.remove("wrong");
+
+                    }, 300);
+
+                }
+
+            }
+        );
+
+
+        symbolGrid.appendChild(button);
+
+    }
+
+}
 
 </script>
 
