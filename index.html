@@ -318,10 +318,6 @@ h1 {
     transform: scale(1.05);
 }
 
-.memory-hidden {
-    visibility: hidden;
-}
-
 .memory-card.correct {
     background: #d3a42e;
     color: white;
@@ -335,7 +331,7 @@ h1 {
 
 .letter-puzzle {
     margin: 25px auto;
-    width: min(420px, 95%);
+    width: min(450px, 95%);
 }
 
 .scrambled-word {
@@ -343,7 +339,7 @@ h1 {
     letter-spacing: 8px;
     color: #ffe8a2;
     font-weight: bold;
-    margin: 20px 0;
+    margin: 25px 0;
     text-shadow: 0 0 12px rgba(255,215,100,0.35);
 }
 
@@ -356,6 +352,7 @@ h1 {
 /* MOBIL */
 
 @media (max-width: 700px) {
+
     .calendar {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -444,13 +441,12 @@ h1 {
 </div>
 
 
-<!-- SPEL-FÖNSTER -->
-
 <div class="game-overlay" id="gameOverlay">
 
     <div class="game-box">
 
         <button class="close-button" id="closeGame">×</button>
+
 
         <!-- LUCKA 1 -->
 
@@ -556,7 +552,7 @@ h1 {
                 </div>
 
                 <div class="letter-hint">
-                    Skriv det rätta ordet.
+                    Skriv det riktiga ordet.
                 </div>
 
                 <input
@@ -580,6 +576,7 @@ h1 {
         </div>
 
     </div>
+
 </div>
 
 
@@ -670,6 +667,7 @@ function updateDoor(door) {
         door.classList.remove("locked");
         door.classList.remove("solved");
         door.textContent = day;
+
     }
 }
 
@@ -717,24 +715,34 @@ function openGame(day) {
     game3.style.display = "none";
     game4.style.display = "none";
 
+
     if (day === 1) {
 
         game1.style.display = "block";
 
-        document.getElementById("answer1").value = "";
-        document.getElementById("result1").textContent = "";
+        document.getElementById(
+            "answer1"
+        ).value = "";
+
+        document.getElementById(
+            "result1"
+        ).textContent = "";
 
     }
+
 
     if (day === 2) {
 
         game2.style.display = "block";
 
-        document.getElementById("result2").textContent = "";
+        document.getElementById(
+            "result2"
+        ).textContent = "";
 
         createSymbolGame();
 
     }
+
 
     if (day === 3) {
 
@@ -744,12 +752,10 @@ function openGame(day) {
 
     }
 
+
     if (day === 4) {
 
         game4.style.display = "block";
-
-        document.getElementById("answer4").value = "";
-        document.getElementById("result4").textContent = "";
 
         createLetterGame();
 
@@ -768,10 +774,12 @@ closeGame.addEventListener("click", () => {
 });
 
 
-overlay.addEventListener("click", (event) => {
+overlay.addEventListener("click", event => {
 
     if (event.target === overlay) {
+
         overlay.style.display = "none";
+
     }
 
 });
@@ -800,34 +808,26 @@ doors.forEach(door => {
 
 
         if (day === 1) {
-
             openGame(1);
             return;
-
         }
 
 
         if (day === 2) {
-
             openGame(2);
             return;
-
         }
 
 
         if (day === 3) {
-
             openGame(3);
             return;
-
         }
 
 
         if (day === 4) {
-
             openGame(4);
             return;
-
         }
 
 
@@ -842,16 +842,19 @@ doors.forEach(door => {
 
 /* =========================
    LUCKA 1
-   TALFÖLJD
 ========================= */
 
 function checkAnswer1() {
 
     const answer =
-        document.getElementById("answer1").value.trim();
+        document.getElementById(
+            "answer1"
+        ).value.trim();
 
     const result =
-        document.getElementById("result1");
+        document.getElementById(
+            "result1"
+        );
 
 
     if (answer === "10") {
@@ -878,40 +881,51 @@ function checkAnswer1() {
 
 document
     .getElementById("check1")
-    .addEventListener("click", checkAnswer1);
+    .addEventListener(
+        "click",
+        checkAnswer1
+    );
 
 
 document
     .getElementById("answer1")
-    .addEventListener("keydown", event => {
+    .addEventListener(
+        "keydown",
+        event => {
 
-        if (event.key === "Enter") {
-            checkAnswer1();
+            if (event.key === "Enter") {
+                checkAnswer1();
+            }
+
         }
-
-    });
+    );
 
 
 /* =========================
    LUCKA 2
-   ANNORLUNDA SYMBOL
 ========================= */
 
 function createSymbolGame() {
 
     const grid =
-        document.getElementById("symbolGrid");
+        document.getElementById(
+            "symbolGrid"
+        );
 
     grid.innerHTML = "";
 
     const oddPosition =
-        Math.floor(Math.random() * 25);
+        Math.floor(
+            Math.random() * 25
+        );
 
 
     for (let i = 0; i < 25; i++) {
 
         const button =
-            document.createElement("button");
+            document.createElement(
+                "button"
+            );
 
         button.className =
             "symbol-button";
@@ -923,49 +937,61 @@ function createSymbolGame() {
             isOdd ? "✧" : "✦";
 
 
-        button.addEventListener("click", () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-            const result =
-                document.getElementById("result2");
+                const result =
+                    document.getElementById(
+                        "result2"
+                    );
 
 
-            if (isOdd) {
+                if (isOdd) {
 
-                result.textContent =
-                    "✨ Rätt! Luckan är löst! ✨";
+                    result.textContent =
+                        "✨ Rätt! Luckan är löst! ✨";
 
-                markAsSolved(2);
+                    markAsSolved(2);
 
-                setTimeout(() => {
+                    setTimeout(() => {
 
-                    overlay.style.display = "none";
+                        overlay.style.display =
+                            "none";
 
-                }, 1200);
+                    }, 1200);
 
-            } else {
+                } else {
 
-                result.textContent =
-                    "🎅 Inte riktigt... försök igen!";
+                    result.textContent =
+                        "🎅 Inte riktigt... försök igen!";
 
-                button.classList.add("shake");
+                    button.classList.add(
+                        "shake"
+                    );
 
-                setTimeout(() => {
-                    button.classList.remove("shake");
-                }, 300);
+                    setTimeout(() => {
+
+                        button.classList.remove(
+                            "shake"
+                        );
+
+                    }, 300);
+
+                }
 
             }
-
-        });
+        );
 
 
         grid.appendChild(button);
+
     }
 }
 
 
 /* =========================
    LUCKA 3
-   MINNE
 ========================= */
 
 const memorySymbols = [
@@ -984,8 +1010,6 @@ let memoryPlayerIndex = 0;
 let memoryGameActive = false;
 
 
-/* RESET */
-
 function resetMemoryGame() {
 
     memorySequenceArray = [];
@@ -1003,17 +1027,17 @@ function resetMemoryGame() {
 }
 
 
-/* STARTA */
-
 function startMemoryGame() {
 
     memoryGameActive = false;
     memoryPlayerIndex = 0;
 
+
     const shuffled =
         [...memorySymbols].sort(
             () => Math.random() - 0.5
         );
+
 
     memorySequenceArray =
         shuffled.slice(0, 6);
@@ -1027,20 +1051,24 @@ function startMemoryGame() {
     area.innerHTML = "";
 
 
-    memorySequenceArray.forEach(symbol => {
+    memorySequenceArray.forEach(
+        symbol => {
 
-        const card =
-            document.createElement("div");
+            const card =
+                document.createElement(
+                    "div"
+                );
 
-        card.className =
-            "memory-card";
+            card.className =
+                "memory-card";
 
-        card.textContent =
-            symbol;
+            card.textContent =
+                symbol;
 
-        area.appendChild(card);
+            area.appendChild(card);
 
-    });
+        }
+    );
 
 
     document.getElementById(
@@ -1054,10 +1082,9 @@ function startMemoryGame() {
         createMemoryButtons();
 
     }, 4000);
+
 }
 
-
-/* SKAPA KORT */
 
 function createMemoryButtons() {
 
@@ -1068,45 +1095,58 @@ function createMemoryButtons() {
 
     area.innerHTML = "";
 
+
     const shuffled =
         [...memorySequenceArray].sort(
             () => Math.random() - 0.5
         );
 
 
-    shuffled.forEach(symbol => {
+    shuffled.forEach(
+        symbol => {
 
-        const button =
-            document.createElement("button");
+            const button =
+                document.createElement(
+                    "button"
+                );
 
-        button.className =
-            "memory-card";
+            button.className =
+                "memory-card";
 
-        button.textContent =
-            symbol;
+            button.textContent =
+                symbol;
 
-        button.addEventListener(
-            "click",
-            () => handleMemoryClick(button, symbol)
-        );
 
-        area.appendChild(button);
+            button.addEventListener(
+                "click",
+                () => handleMemoryClick(
+                    button,
+                    symbol
+                )
+            );
 
-    });
+
+            area.appendChild(button);
+
+        }
+    );
 
 
     memoryGameActive = true;
+
 
     document.getElementById(
         "memoryStatus"
     ).textContent =
         "🧠 Klicka symbolerna i rätt ordning!";
+
 }
 
 
-/* KLICKA */
-
-function handleMemoryClick(button, symbol) {
+function handleMemoryClick(
+    button,
+    symbol
+) {
 
     if (!memoryGameActive) {
         return;
@@ -1115,10 +1155,14 @@ function handleMemoryClick(button, symbol) {
 
     if (
         symbol ===
-        memorySequenceArray[memoryPlayerIndex]
+        memorySequenceArray[
+            memoryPlayerIndex
+        ]
     ) {
 
-        button.classList.add("correct");
+        button.classList.add(
+            "correct"
+        );
 
         memoryPlayerIndex++;
 
@@ -1137,13 +1181,15 @@ function handleMemoryClick(button, symbol) {
 
             markAsSolved(3);
 
+
             setTimeout(() => {
 
-                overlay.style.display = "none";
+                overlay.style.display =
+                    "none";
 
             }, 1500);
-        }
 
+        }
 
     } else {
 
@@ -1160,12 +1206,16 @@ function handleMemoryClick(button, symbol) {
             startMemoryGame();
 
         }, 900);
+
     }
+
 }
 
 
 document
-    .getElementById("memoryStart")
+    .getElementById(
+        "memoryStart"
+    )
     .addEventListener(
         "click",
         startMemoryGame
@@ -1178,32 +1228,39 @@ document
 ========================= */
 
 const letterPuzzles = [
-    {
-        scrambled: "JUL",
-        answer: "JUL"
-    },
-    {
-        scrambled: "SNÖ",
-        answer: "SNÖ"
-    },
+
     {
         scrambled: "LJU",
         answer: "JUL"
     },
+
     {
-        scrambled: "DGAN",
+        scrambled: "DAGN",
         answer: "GRAN"
     },
+
     {
-        scrambled: "LJUS",
+        scrambled: "SJLU",
         answer: "LJUS"
+    },
+
+    {
+        scrambled: "NIG",
+        answer: "GRIN"
+    },
+
+    {
+        scrambled: "KLU",
+        answer: "LUK"
     }
+
 ];
+
 
 let currentLetterPuzzle = null;
 
 
-/* SKAPA NYTT PUSSEL */
+/* SKAPA PUSSEL */
 
 function createLetterGame() {
 
@@ -1234,20 +1291,24 @@ function createLetterGame() {
 }
 
 
-/* KONTROLLERA */
+/* KONTROLLERA SVAR */
 
 function checkAnswer4() {
 
     const answer =
         document
-            .getElementById("answer4")
+            .getElementById(
+                "answer4"
+            )
             .value
             .trim()
             .toUpperCase();
 
 
     const result =
-        document.getElementById("result4");
+        document.getElementById(
+            "result4"
+        );
 
 
     if (
@@ -1263,7 +1324,8 @@ function checkAnswer4() {
 
         setTimeout(() => {
 
-            overlay.style.display = "none";
+            overlay.style.display =
+                "none";
 
         }, 1400);
 
@@ -1271,14 +1333,17 @@ function checkAnswer4() {
     } else {
 
         result.textContent =
-            "🎅 Inte riktigt... bokstäverna gömmer något annat!";
+            "🎅 Inte riktigt... försök igen!";
 
     }
+
 }
 
 
 document
-    .getElementById("check4")
+    .getElementById(
+        "check4"
+    )
     .addEventListener(
         "click",
         checkAnswer4
@@ -1286,13 +1351,17 @@ document
 
 
 document
-    .getElementById("answer4")
+    .getElementById(
+        "answer4"
+    )
     .addEventListener(
         "keydown",
         event => {
 
             if (event.key === "Enter") {
+
                 checkAnswer4();
+
             }
 
         }
