@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="sv">
 
 <head>
@@ -9,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Julens Hemlighet</title>
+
 
 <style>
 
@@ -123,7 +123,7 @@ h1 {
 
 
 /* ================================
-   LITEN JULDEKORATION
+   JULDEKORATION
    ================================ */
 
 .garland {
@@ -288,6 +288,38 @@ h1 {
 
 
 /* ================================
+   LÖST LUCKA
+   ================================ */
+
+.solved {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #d5a928,
+            #a87808 55%,
+            #715000
+        );
+
+    border-color: #ffe49a;
+
+    color: #fff8d8;
+
+    box-shadow:
+
+        inset 0 0 25px
+        rgba(255,230,120,0.25),
+
+        0 0 22px
+        rgba(255,210,80,0.35),
+
+        0 8px 20px
+        rgba(0,0,0,0.5);
+}
+
+
+/* ================================
    LÅSTA LUCKOR
    ================================ */
 
@@ -357,8 +389,6 @@ h1 {
         snowFall linear infinite;
 }
 
-
-/* Olika storlekar */
 
 .snow1 {
     left: 4%;
@@ -463,7 +493,7 @@ h1 {
 
 
 /* ================================
-   LITEN TEXT LÄNGST NER
+   FOOTER
    ================================ */
 
 .footer {
@@ -475,6 +505,288 @@ h1 {
     font-size: 15px;
 
     opacity: 0.8;
+}
+
+
+/* ================================
+   SPELRUTA / POPUP
+   ================================ */
+
+.game-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(10, 2, 5, 0.82);
+
+    backdrop-filter: blur(6px);
+
+    z-index: 1000;
+}
+
+
+.game-overlay.show {
+
+    display: flex;
+}
+
+
+.game-box {
+
+    width: 100%;
+
+    max-width: 550px;
+
+    padding: 35px 30px 30px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #6f1422,
+            #3a0c15
+        );
+
+    border:
+        3px solid #dcb65e;
+
+    border-radius: 20px;
+
+    box-shadow:
+
+        0 20px 60px
+        rgba(0,0,0,0.8),
+
+        0 0 35px
+        rgba(255,205,90,0.15);
+
+    position: relative;
+
+    animation:
+        popupIn 0.25s ease;
+}
+
+
+@keyframes popupIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.9)
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
+
+}
+
+
+.game-title {
+
+    margin: 0 0 10px;
+
+    font-size: 32px;
+
+    color: #fff1bd;
+
+    text-shadow:
+        0 0 10px
+        rgba(255,220,130,0.5);
+}
+
+
+.game-text {
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    color: #f8dfb0;
+
+    margin-bottom: 25px;
+}
+
+
+.sequence {
+
+    font-size: 32px;
+
+    letter-spacing: 8px;
+
+    color: #fff4cf;
+
+    margin:
+        25px 0 30px;
+
+    font-weight: bold;
+}
+
+
+.answer-input {
+
+    width: 160px;
+
+    padding: 13px;
+
+    text-align: center;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 24px;
+
+    color: #4a1018;
+
+    background: #fff6dc;
+
+    border:
+        3px solid #dcb65e;
+
+    border-radius: 10px;
+
+    outline: none;
+}
+
+
+.answer-input:focus {
+
+    box-shadow:
+        0 0 15px
+        rgba(255,220,130,0.5);
+}
+
+
+.game-button {
+
+    display: block;
+
+    margin: 18px auto 0;
+
+    padding: 12px 30px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #4a1018;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f6d875,
+            #c99d31
+        );
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 12px
+        rgba(0,0,0,0.4);
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+
+.game-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    filter: brightness(1.1);
+}
+
+
+.close-button {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 15px;
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,0.25);
+
+    color: #ffeec1;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+
+.close-button:hover {
+
+    background:
+        rgba(0,0,0,0.45);
+}
+
+
+.result {
+
+    min-height: 30px;
+
+    margin-top: 20px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+
+.result.correct {
+
+    color: #ffe58b;
+
+}
+
+
+.result.wrong {
+
+    color: #ffaaa7;
+
 }
 
 
@@ -524,13 +836,38 @@ h1 {
         font-size: 34px;
     }
 
+    .game-box {
+
+        padding:
+            30px 20px 25px;
+    }
+
+    .game-title {
+
+        font-size: 27px;
+    }
+
+    .game-text {
+
+        font-size: 18px;
+    }
+
+    .sequence {
+
+        font-size: 26px;
+
+        letter-spacing: 5px;
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <!-- ================================
      SNÖ
@@ -547,6 +884,7 @@ h1 {
 <div class="snow snow9">❄</div>
 <div class="snow snow10">❄</div>
 
+
 <!-- ================================
      RUBRIK
      ================================ -->
@@ -554,6 +892,7 @@ h1 {
 <h1>
 🎄 Julens Hemlighet 🎄
 </h1>
+
 
 <div class="subtitle">
 
@@ -565,6 +904,7 @@ h1 {
 
 </div>
 
+
 <!-- JULDEKORATION -->
 
 <div class="garland">
@@ -573,11 +913,13 @@ h1 {
 
 </div>
 
+
 <!-- ================================
      KALENDER
      ================================ -->
 
 <div class="calendar">
+
 
 <div class="door" data-day="1">1</div>
 
@@ -587,6 +929,7 @@ h1 {
 
 <div class="door" data-day="4">4</div>
 
+
 <div class="door" data-day="5">5</div>
 
 <div class="door" data-day="6">6</div>
@@ -594,6 +937,7 @@ h1 {
 <div class="door" data-day="7">7</div>
 
 <div class="door" data-day="8">8</div>
+
 
 <div class="door" data-day="9">9</div>
 
@@ -603,6 +947,7 @@ h1 {
 
 <div class="door" data-day="12">12</div>
 
+
 <div class="door" data-day="13">13</div>
 
 <div class="door" data-day="14">14</div>
@@ -610,6 +955,7 @@ h1 {
 <div class="door" data-day="15">15</div>
 
 <div class="door" data-day="16">16</div>
+
 
 <div class="door" data-day="17">17</div>
 
@@ -619,6 +965,7 @@ h1 {
 
 <div class="door" data-day="20">20</div>
 
+
 <div class="door" data-day="21">21</div>
 
 <div class="door" data-day="22">22</div>
@@ -627,13 +974,82 @@ h1 {
 
 <div class="door" data-day="24">24</div>
 
+
 </div>
+
 
 <div class="footer">
 
 🎁 Ett litet mysterium väntar bakom varje lucka...
 
 </div>
+
+
+<!-- ================================
+     SPELRUTA
+     ================================ -->
+
+<div class="game-overlay" id="gameOverlay">
+
+
+    <div class="game-box">
+
+
+        <button
+            class="close-button"
+            id="closeGame"
+        >
+            ×
+        </button>
+
+
+        <h2 class="game-title">
+            🎁 Lucka 1
+        </h2>
+
+
+        <div class="game-text">
+
+            Lös talserien:
+
+        </div>
+
+
+        <div class="sequence">
+
+            2 – 4 – 6 – 8 – ?
+
+        </div>
+
+
+        <input
+            class="answer-input"
+            id="answerInput"
+            type="number"
+            placeholder="?"
+        >
+
+
+        <button
+            class="game-button"
+            id="answerButton"
+        >
+
+            LÖS UPPGIFTEN
+
+        </button>
+
+
+        <div
+            class="result"
+            id="gameResult"
+        ></div>
+
+
+    </div>
+
+</div>
+
 
 <!-- ================================
      JAVASCRIPT
@@ -657,6 +1073,23 @@ Då används det riktiga datumet.
 
 const TEST_DAY = 5;
 
+
+/*
+HÄMTA SENAST LÖSTA LUCKOR
+
+Detta gör att en löst lucka
+förblir löst även om sidan laddas om.
+*/
+
+let solvedDoors =
+    JSON.parse(
+        localStorage.getItem("solvedDoors") || "[]"
+    );
+
+
+/*
+RÄKNA UT VILKEN DAG SOM ÄR ÖPPEN
+*/
 
 let currentDay;
 
@@ -692,7 +1125,7 @@ else {
 
 
 /*
-HÄMTA LUCKORNA
+HÄMTA ALLA LUCKOR
 */
 
 const doors =
@@ -700,15 +1133,83 @@ document.querySelectorAll(".door");
 
 
 /*
-LÅS / ÖPPNA
+SPELRUTAN
 */
 
-doors.forEach(function(door) {
+const gameOverlay =
+document.getElementById("gameOverlay");
+
+const closeGame =
+document.getElementById("closeGame");
+
+const answerInput =
+document.getElementById("answerInput");
+
+const answerButton =
+document.getElementById("answerButton");
+
+const gameResult =
+document.getElementById("gameResult");
+
+
+/*
+VILKEN LUCKA SPELAS JUST NU?
+*/
+
+let currentGameDay = null;
+
+
+/*
+MARKERA EN LÖST LUCKA
+*/
+
+function markAsSolved(day) {
+
+
+    if (!solvedDoors.includes(day)) {
+
+        solvedDoors.push(day);
+
+    }
+
+
+    localStorage.setItem(
+        "solvedDoors",
+        JSON.stringify(solvedDoors)
+    );
+
+}
+
+
+/*
+UPPDATERA EN LUCKAS UTSEENDE
+*/
+
+function updateDoor(door) {
 
 
     const day =
         Number(door.dataset.day);
 
+
+    /*
+    Om luckan är löst
+    */
+
+    if (solvedDoors.includes(day)) {
+
+        door.classList.add("solved");
+
+        door.textContent = "✓";
+
+        return;
+
+    }
+
+
+    /*
+    Om luckan ännu inte är öppen
+    */
 
     if (day > currentDay) {
 
@@ -718,11 +1219,31 @@ doors.forEach(function(door) {
 
     }
 
+}
+
+
+/*
+SÄTT UPP ALLA LUCKOR
+*/
+
+doors.forEach(function(door) {
+
+
+    updateDoor(door);
+
+
+    const day =
+        Number(door.dataset.day);
+
 
     door.addEventListener(
         "click",
         function() {
 
+
+            /*
+            LÅST LUCKA
+            */
 
             if (day > currentDay) {
 
@@ -730,17 +1251,33 @@ doors.forEach(function(door) {
                     "🎅 Den här luckan är inte öppen ännu!"
                 );
 
-            }
-
-            else {
-
-                alert(
-                    "🎁 Du öppnade lucka "
-                    + day
-                    + "!"
-                );
+                return;
 
             }
+
+
+            /*
+            LUCKA 1
+            */
+
+            if (day === 1) {
+
+                openGame(1);
+
+                return;
+
+            }
+
+
+            /*
+            ÖVRIGA ÖPPNA LUCKOR
+            */
+
+            alert(
+                "🎁 Lucka "
+                + day
+                + " är redo för sitt spel!"
+            );
 
         }
     );
@@ -748,7 +1285,199 @@ doors.forEach(function(door) {
 });
 
 
+/*
+ÖPPNA SPELET
+*/
+
+function openGame(day) {
+
+
+    currentGameDay = day;
+
+
+    gameResult.textContent = "";
+
+    gameResult.className = "result";
+
+
+    answerInput.value = "";
+
+
+    gameOverlay.classList.add("show");
+
+
+    setTimeout(
+        function() {
+
+            answerInput.focus();
+
+        },
+        100
+    );
+
+}
+
+
+/*
+STÄNG SPELET
+*/
+
+function closeGameWindow() {
+
+    gameOverlay.classList.remove("show");
+
+}
+
+
+closeGame.addEventListener(
+    "click",
+    closeGameWindow
+);
+
+
+/*
+KLICKA UTANFÖR SPELRUTAN
+*/
+
+gameOverlay.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target === gameOverlay
+        ) {
+
+            closeGameWindow();
+
+        }
+
+    }
+);
+
+
+/*
+KONTROLLERA SVARET
+*/
+
+function checkAnswer() {
+
+
+    const answer =
+        answerInput.value.trim();
+
+
+    if (answer === "") {
+
+        gameResult.textContent =
+            "Skriv ett svar först! 🎄";
+
+        gameResult.className =
+            "result wrong";
+
+        return;
+
+    }
+
+
+    /*
+    RÄTT SVAR
+    */
+
+    if (answer === "10") {
+
+
+        gameResult.textContent =
+            "✨ Rätt! Luckan är löst! ✨";
+
+
+        gameResult.className =
+            "result correct";
+
+
+        markAsSolved(1);
+
+
+        /*
+        Uppdatera lucka 1
+        */
+
+        doors.forEach(function(door) {
+
+            if (
+                Number(door.dataset.day) === 1
+            ) {
+
+                updateDoor(door);
+
+            }
+
+        });
+
+
+        /*
+        Låt spelaren se resultatet
+        */
+
+        setTimeout(
+            function() {
+
+                closeGameWindow();
+
+            },
+            1400
+        );
+
+
+    }
+
+    else {
+
+
+        gameResult.textContent =
+            "🎅 Inte riktigt... försök igen!";
+
+
+        gameResult.className =
+            "result wrong";
+
+
+        answerInput.select();
+
+    }
+
+}
+
+
+/*
+KNAPPEN
+*/
+
+answerButton.addEventListener(
+    "click",
+    checkAnswer
+);
+
+
+/*
+ENTER PÅ TANGENTBORDET
+*/
+
+answerInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            checkAnswer();
+
+        }
+
+    }
+);
+
+
 </script>
+
 
 </body>
 
