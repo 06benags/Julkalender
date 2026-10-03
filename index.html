@@ -9,6 +9,68 @@
 <title>Min Julkalender</title>
 
 <style>
+.snow {
+    position: fixed;
+    top: -30px;
+    left: 5%;
+    color: white;
+    font-size: 22px;
+    pointer-events: none;
+    animation: fall 8s linear infinite;
+    z-index: 100;
+}
+
+.snow2 {
+    left: 20%;
+    animation-duration: 11s;
+    animation-delay: 2s;
+}
+
+.snow3 {
+    left: 35%;
+    animation-duration: 9s;
+    animation-delay: 4s;
+}
+
+.snow4 {
+    left: 50%;
+    animation-duration: 13s;
+    animation-delay: 1s;
+}
+
+.snow5 {
+    left: 65%;
+    animation-duration: 10s;
+    animation-delay: 3s;
+}
+
+.snow6 {
+    left: 75%;
+    animation-duration: 12s;
+    animation-delay: 5s;
+}
+
+.snow7 {
+    left: 85%;
+    animation-duration: 9s;
+    animation-delay: 2s;
+}
+
+.snow8 {
+    left: 95%;
+    animation-duration: 14s;
+    animation-delay: 6s;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-30px) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
 
 body {
     margin: 0;
@@ -112,6 +174,14 @@ p {
 </head>
 
 <body>
+<div class="snow">❄</div>
+<div class="snow snow2">❄</div>
+<div class="snow snow3">❄</div>
+<div class="snow snow4">❄</div>
+<div class="snow snow5">❄</div>
+<div class="snow snow6">❄</div>
+<div class="snow snow7">❄</div>
+<div class="snow snow8">❄</div>
 
 <h1>Min Julkalender</h1>
 
