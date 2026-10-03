@@ -2,12 +2,15 @@
 <html lang="sv">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Min Julkalender</title>
 
     <style>
+
         body {
             background-color: #0b1d3a;
             color: white;
@@ -19,76 +22,239 @@
 
         h1 {
             font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 20px;
         }
 
         .calendar {
             max-width: 900px;
-            margin: auto;
+            margin: 40px auto;
+
             display: grid;
+
             grid-template-columns: repeat(4, 1fr);
+
             gap: 20px;
         }
 
         .door {
             background-color: #c62828;
+
             border: 4px solid #f5c542;
+
             border-radius: 15px;
+
             height: 140px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             font-size: 40px;
+
             font-weight: bold;
+
+            cursor: pointer;
+
+            transition: transform 0.2s, opacity 0.2s;
         }
+
+        .door:hover {
+            transform: scale(1.05);
+        }
+
+        .locked {
+            background-color: #555;
+
+            border-color: #777;
+
+            cursor: not-allowed;
+
+            opacity: 0.6;
+        }
+
+        .locked:hover {
+            transform: none;
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
     <h1>🎄 Min Julkalender 🎄</h1>
 
-    <p>Öppna en lucka varje dag!</p>
+    <p id="message">
+        Öppna en lucka varje dag!
+    </p>
+
 
     <div class="calendar">
 
-        <div class="door">1</div>
-        <div class="door">2</div>
-        <div class="door">3</div>
-        <div class="door">4</div>
-        <div class="door">5</div>
-        <div class="door">6</div>
-        <div class="door">7</div>
-        <div class="door">8</div>
-        <div class="door">9</div>
-        <div class="door">10</div>
-        <div class="door">11</div>
-        <div class="door">12</div>
-        <div class="door">13</div>
-        <div class="door">14</div>
-        <div class="door">15</div>
-        <div class="door">16</div>
-        <div class="door">17</div>
-        <div class="door">18</div>
-        <div class="door">19</div>
-        <div class="door">20</div>
-        <div class="door">21</div>
-        <div class="door">22</div>
-        <div class="door">23</div>
-        <div class="door">24</div>
+        <div class="door" data-day="1">1</div>
+
+        <div class="door" data-day="2">2</div>
+
+        <div class="door" data-day="3">3</div>
+
+        <div class="door" data-day="4">4</div>
+
+        <div class="door" data-day="5">5</div>
+
+        <div class="door" data-day="6">6</div>
+
+        <div class="door" data-day="7">7</div>
+
+        <div class="door" data-day="8">8</div>
+
+        <div class="door" data-day="9">9</div>
+
+        <div class="door" data-day="10">10</div>
+
+        <div class="door" data-day="11">11</div>
+
+        <div class="door" data-day="12">12</div>
+
+        <div class="door" data-day="13">13</div>
+
+        <div class="door" data-day="14">14</div>
+
+        <div class="door" data-day="15">15</div>
+
+        <div class="door" data-day="16">16</div>
+
+        <div class="door" data-day="17">17</div>
+
+        <div class="door" data-day="18">18</div>
+
+        <div class="door" data-day="19">19</div>
+
+        <div class="door" data-day="20">20</div>
+
+        <div class="door" data-day="21">21</div>
+
+        <div class="door" data-day="22">22</div>
+
+        <div class="door" data-day="23">23</div>
+
+        <div class="door" data-day="24">24</div>
+
+    </div>
 
 
-<script>
-    const doors = document.querySelectorAll(".door");
+    <script>
 
-    doors.forEach(function(door) {
-        door.addEventListener("click", function() {
-            const number = door.textContent;
+        /*
+        ====================================
+        TESTLÄGE
+        ====================================
 
-            alert("🎁 Du öppnade lucka " + number + "!");
+        Ändra siffran nedan för att testa.
+
+        1 = 1 december
+        2 = 2 december
+        3 = 3 december
+        osv.
+
+        Sätt TEST_DAY till 0 när kalendern
+        ska använda det riktiga datumet.
+        */
+
+        const TEST_DAY = 5;
+
+
+        /*
+        ====================================
+        RÄKNA UT DAG
+        ====================================
+        */
+
+        let currentDay;
+
+
+        if (TEST_DAY > 0) {
+
+            currentDay = TEST_DAY;
+
+        } else {
+
+            const today = new Date();
+
+            const month = today.getMonth();
+
+            const date = today.getDate();
+
+
+            if (month === 11) {
+
+                currentDay = date;
+
+            } else {
+
+                currentDay = 0;
+
+            }
+
+        }
+
+
+        /*
+        ====================================
+        HITTA ALLA LUCKOR
+        ====================================
+        */
+
+        const doors = document.querySelectorAll(".door");
+
+
+        /*
+        ====================================
+        LÅS / LÅS UPP LUCKOR
+        ====================================
+        */
+
+        doors.forEach(function(door) {
+
+            const day = Number(door.dataset.day);
+
+
+            if (day > currentDay) {
+
+                door.classList.add("locked");
+
+                door.textContent = "🔒";
+
+            }
+
+
+            door.addEventListener("click", function() {
+
+
+                if (day > currentDay) {
+
+                    alert("🎅 Den här luckan är inte öppen ännu!");
+
+                    return;
+
+                }
+
+
+                alert("🎁 Du öppnade lucka " + day + "!");
+
+            });
+
         });
-    });
-<script>  
-</div>
+
+    </script>
+
+
 </body>
 
 </html>
