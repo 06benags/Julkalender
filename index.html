@@ -615,17 +615,7 @@ const TEST_DAY = 24;
    SPARADE LUCKOR
 ===================================================== */
 
-/*
-   Här sparas vilka luckor som är markerade
-   som färdiga.
-
-   Detta använder webbläsarens localStorage.
-*/
-
-let solvedDoors =
-    JSON.parse(
-        localStorage.getItem("solvedDoors")
-    ) || [];
+let solvedDoors = [];
 
 
 /* =====================================================
