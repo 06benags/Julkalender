@@ -56,8 +56,7 @@ h1 {
     min-height: 150px;
     border: 3px solid #e7b94e;
     border-radius: 16px;
-    background:
-        linear-gradient(145deg, #b51f2d, #73101b);
+    background: linear-gradient(145deg, #b51f2d, #73101b);
     box-shadow:
         0 8px 20px rgba(0,0,0,0.45),
         inset 0 0 20px rgba(255,255,255,0.08);
@@ -78,7 +77,6 @@ h1 {
     top: 7px;
     left: 12px;
     font-size: 0.9rem;
-    color: #ffe9a8;
 }
 
 .door::after {
@@ -87,7 +85,6 @@ h1 {
     bottom: 7px;
     right: 12px;
     font-size: 0.9rem;
-    color: #ffe9a8;
 }
 
 .door:hover {
@@ -102,18 +99,14 @@ h1 {
     color: #888;
     border-color: #684044;
     cursor: not-allowed;
-    filter: grayscale(0.3);
 }
 
 .door.locked:hover {
     transform: none;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.45);
 }
 
 .door.solved {
-    background:
-        linear-gradient(145deg, #d6a832, #956512);
-    color: white;
+    background: linear-gradient(145deg, #d6a832, #956512);
     border-color: #fff0a3;
     box-shadow:
         0 0 20px rgba(255,214,85,0.5),
@@ -123,10 +116,7 @@ h1 {
 .footer {
     margin: 10px 20px 35px;
     color: #f6df9c;
-    font-size: 1rem;
 }
-
-/* SNÖ */
 
 .snow {
     position: fixed;
@@ -150,21 +140,18 @@ h1 {
 .snow10 { left: 97%; font-size: 25px; animation-duration: 16s; animation-delay: -9s; }
 
 @keyframes snowFall {
-    0% {
+    from {
         transform: translateY(-40px) rotate(0deg);
     }
-
-    100% {
+    to {
         transform: translateY(110vh) rotate(360deg);
     }
 }
 
-/* SPEL-FÖNSTER */
-
 .game-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(10, 0, 2, 0.82);
+    background: rgba(10,0,2,0.84);
     backdrop-filter: blur(5px);
     display: none;
     align-items: center;
@@ -174,11 +161,10 @@ h1 {
 }
 
 .game-box {
-    width: min(620px, 96%);
+    width: min(650px, 96%);
     max-height: 90vh;
     overflow-y: auto;
-    background:
-        linear-gradient(145deg, #65101a, #32080d);
+    background: linear-gradient(145deg, #65101a, #32080d);
     border: 3px solid #e6b94e;
     border-radius: 22px;
     padding: 30px 22px;
@@ -200,7 +186,7 @@ h1 {
 }
 
 .game-title {
-    margin: 5px 30px 15px;
+    margin: 5px 35px 15px;
     color: #ffe49a;
     font-size: 2rem;
 }
@@ -208,11 +194,11 @@ h1 {
 .game-text {
     color: #fff4d2;
     font-size: 1.15rem;
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
 .game-button {
-    margin-top: 18px;
+    margin: 10px 5px;
     padding: 12px 22px;
     border: 2px solid #ffe7a0;
     border-radius: 10px;
@@ -230,14 +216,14 @@ h1 {
 }
 
 .answer-input {
-    width: min(250px, 80%);
+    width: min(300px, 90%);
     padding: 12px;
-    margin-top: 15px;
+    margin: 15px 5px 5px;
     border-radius: 10px;
     border: 2px solid #dcae42;
     background: #fff9df;
     color: #351014;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     text-align: center;
 }
 
@@ -248,7 +234,26 @@ h1 {
     color: #ffe49a;
 }
 
-/* LUCKA 2 */
+.option-grid {
+    display: grid;
+    gap: 10px;
+    width: min(500px, 95%);
+    margin: 22px auto;
+}
+
+.option-button {
+    padding: 13px;
+    border: 2px solid #d6ad49;
+    border-radius: 10px;
+    background: #821522;
+    color: #fff1bd;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.option-button:hover {
+    background: #a51d2d;
+}
 
 .symbol-grid {
     display: grid;
@@ -266,93 +271,67 @@ h1 {
     color: #ffe9aa;
     font-size: 1.7rem;
     cursor: pointer;
-    transition: 0.15s;
 }
 
-.symbol-button:hover {
-    transform: scale(1.08);
-    background: #a92332;
-}
-
-.symbol-button.shake {
-    animation: shake 0.3s;
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-7px); }
-    75% { transform: translateX(7px); }
-}
-
-/* LUCKA 3 */
-
-.memory-area {
-    margin-top: 20px;
-}
-
-.memory-sequence {
-    min-height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin: 20px 0;
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: min(400px, 95%);
+    margin: 20px auto;
 }
 
 .memory-card {
-    width: 55px;
-    height: 55px;
+    aspect-ratio: 1;
     border-radius: 12px;
-    border: 2px solid #e4b948;
-    background: #8e1724;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
+    border: 2px solid #dcae42;
+    background: #751321;
+    color: white;
+    font-size: 2rem;
     cursor: pointer;
-    transition: 0.2s;
 }
 
-.memory-card:hover {
-    transform: scale(1.05);
+.memory-card.hidden-card {
+    color: transparent;
+    background: #4a0b14;
 }
 
 .memory-card.correct {
     background: #d3a42e;
-    color: white;
 }
 
-.memory-start {
-    margin-top: 10px;
-}
-
-/* LUCKA 4 */
-
-.letter-puzzle {
-    margin: 25px auto;
-    width: min(450px, 95%);
-}
-
-.scrambled-word {
+.scramble {
     font-size: clamp(2rem, 8vw, 3.5rem);
     letter-spacing: 8px;
     color: #ffe8a2;
     font-weight: bold;
+    margin: 25px;
+}
+
+.sequence {
+    font-size: 1.8rem;
+    color: #ffe9ad;
     margin: 25px 0;
-    text-shadow: 0 0 12px rgba(255,215,100,0.35);
+    letter-spacing: 5px;
 }
 
-.letter-hint {
-    color: #f9df9f;
+.big-number {
+    font-size: 3rem;
+    color: #ffe49a;
+    margin: 25px;
+}
+
+.progress {
+    color: #eacb78;
     margin-top: 10px;
-    font-size: 1rem;
 }
 
-/* MOBIL */
+.final-box {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
 
 @media (max-width: 700px) {
-
     .calendar {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -447,133 +426,7 @@ h1 {
 
         <button class="close-button" id="closeGame">×</button>
 
-
-        <!-- LUCKA 1 -->
-
-        <div class="game" id="game1" style="display:none;">
-
-            <div class="game-title">
-                🎁 Lucka 1
-            </div>
-
-            <div class="game-text">
-                Lös talserien:
-                <br><br>
-
-                <strong>
-                    2 – 4 – 6 – 8 – ?
-                </strong>
-            </div>
-
-            <input
-                type="number"
-                id="answer1"
-                class="answer-input"
-                placeholder="Ditt svar"
-            >
-
-            <br>
-
-            <button class="game-button" id="check1">
-                LÖS UPPGIFTEN
-            </button>
-
-            <div class="result" id="result1"></div>
-
-        </div>
-
-
-        <!-- LUCKA 2 -->
-
-        <div class="game" id="game2" style="display:none;">
-
-            <div class="game-title">
-                🧩 Lucka 2
-            </div>
-
-            <div class="game-text">
-                Hitta den enda symbolen som är annorlunda.
-            </div>
-
-            <div class="symbol-grid" id="symbolGrid"></div>
-
-            <div class="result" id="result2"></div>
-
-        </div>
-
-
-        <!-- LUCKA 3 -->
-
-        <div class="game" id="game3" style="display:none;">
-
-            <div class="game-title">
-                🧠 Lucka 3
-            </div>
-
-            <div class="game-text">
-                Memorera symbolerna i rätt ordning.
-            </div>
-
-            <div class="memory-area">
-
-                <button class="game-button memory-start" id="memoryStart">
-                    VISA SEKVENSEN
-                </button>
-
-                <div class="memory-status" id="memoryStatus">
-                </div>
-
-                <div class="memory-sequence" id="memorySequence">
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- LUCKA 4 -->
-
-        <div class="game" id="game4" style="display:none;">
-
-            <div class="game-title">
-                🔤 Lucka 4
-            </div>
-
-            <div class="game-text">
-                Bokstäverna har hamnat i fel ordning.
-                <br>
-                Sätt ihop dem till ett julord.
-            </div>
-
-            <div class="letter-puzzle">
-
-                <div class="scrambled-word" id="scrambledWord">
-                    LJU
-                </div>
-
-                <div class="letter-hint">
-                    Skriv det riktiga ordet.
-                </div>
-
-                <input
-                    type="text"
-                    id="answer4"
-                    class="answer-input"
-                    placeholder="Ditt svar"
-                    autocomplete="off"
-                >
-
-                <br>
-
-                <button class="game-button" id="check4">
-                    LÖS UPPGIFTEN
-                </button>
-
-                <div class="result" id="result4"></div>
-
-            </div>
-
-        </div>
+        <div id="gameContent"></div>
 
     </div>
 
@@ -582,24 +435,33 @@ h1 {
 
 <script>
 
-/* =========================
-   INSTÄLLNINGAR
-========================= */
+/* =====================================================
+   INSTÄLLNING
+===================================================== */
 
-const TEST_DAY = 5;
+/*
+   24 = alla luckor öppna för testning.
+
+   När kalendern är färdig:
+   ändra till 0.
+
+   Då öppnas luckorna enligt det riktiga decemberdatumet.
+*/
+
+const TEST_DAY = 24;
 
 
-/* =========================
+/* =====================================================
    SPARADE LUCKOR
-========================= */
+===================================================== */
 
 let solvedDoors =
     JSON.parse(localStorage.getItem("solvedDoors")) || [];
 
 
-/* =========================
-   VILKEN DAG ÄR ÖPPEN?
-========================= */
+/* =====================================================
+   DATUM
+===================================================== */
 
 const today = new Date();
 
@@ -612,12 +474,13 @@ if (TEST_DAY === 0) {
     } else {
         currentDay = 0;
     }
+
 }
 
 
-/* =========================
+/* =====================================================
    ELEMENT
-========================= */
+===================================================== */
 
 const doors =
     document.querySelectorAll(".door");
@@ -625,25 +488,16 @@ const doors =
 const overlay =
     document.getElementById("gameOverlay");
 
+const content =
+    document.getElementById("gameContent");
+
 const closeGame =
     document.getElementById("closeGame");
 
-const game1 =
-    document.getElementById("game1");
 
-const game2 =
-    document.getElementById("game2");
-
-const game3 =
-    document.getElementById("game3");
-
-const game4 =
-    document.getElementById("game4");
-
-
-/* =========================
-   UPPDATERA LUCKOR
-========================= */
+/* =====================================================
+   LUCKOR
+===================================================== */
 
 function updateDoor(door) {
 
@@ -671,13 +525,12 @@ function updateDoor(door) {
     }
 }
 
-
 doors.forEach(updateDoor);
 
 
-/* =========================
-   MARKERA SOM LÖST
-========================= */
+/* =====================================================
+   MARKERA LUCKA SOM LÖST
+===================================================== */
 
 function markAsSolved(day) {
 
@@ -689,6 +542,7 @@ function markAsSolved(day) {
             "solvedDoors",
             JSON.stringify(solvedDoors)
         );
+
     }
 
     const door =
@@ -699,95 +553,1351 @@ function markAsSolved(day) {
     if (door) {
         updateDoor(door);
     }
+
 }
 
 
-/* =========================
-   ÖPPNA SPEL
-========================= */
+/* =====================================================
+   SPELVERKTYG
+===================================================== */
 
-function openGame(day) {
-
+function openGame() {
     overlay.style.display = "flex";
+}
 
-    game1.style.display = "none";
-    game2.style.display = "none";
-    game3.style.display = "none";
-    game4.style.display = "none";
+function closeGameWindow() {
+    overlay.style.display = "none";
+    content.innerHTML = "";
+}
+
+closeGame.addEventListener(
+    "click",
+    closeGameWindow
+);
+
+overlay.addEventListener(
+    "click",
+    event => {
+        if (event.target === overlay) {
+            closeGameWindow();
+        }
+    }
+);
 
 
-    if (day === 1) {
+/* =====================================================
+   RESULTAT
+===================================================== */
 
-        game1.style.display = "block";
+function correct(day, message = "✨ Rätt! Luckan är löst! ✨") {
 
-        document.getElementById(
-            "answer1"
-        ).value = "";
+    content.querySelector(".result").textContent =
+        message;
 
-        document.getElementById(
-            "result1"
-        ).textContent = "";
+    markAsSolved(day);
 
+    setTimeout(() => {
+        closeGameWindow();
+    }, 1400);
+
+}
+
+function wrong(message = "🎅 Inte riktigt... försök igen!") {
+
+    const result =
+        content.querySelector(".result");
+
+    if (result) {
+        result.textContent = message;
     }
 
-
-    if (day === 2) {
-
-        game2.style.display = "block";
-
-        document.getElementById(
-            "result2"
-        ).textContent = "";
-
-        createSymbolGame();
-
-    }
-
-
-    if (day === 3) {
-
-        game3.style.display = "block";
-
-        resetMemoryGame();
-
-    }
-
-
-    if (day === 4) {
-
-        game4.style.display = "block";
-
-        createLetterGame();
-
-    }
 }
 
 
-/* =========================
-   STÄNG SPEL
-========================= */
+/* =====================================================
+   LUCKA 1
+   TALFÖLJD
+===================================================== */
 
-closeGame.addEventListener("click", () => {
+function game1() {
 
-    overlay.style.display = "none";
+    content.innerHTML = `
+        <div class="game-title">🎁 Lucka 1</div>
 
-});
+        <div class="game-text">
+            Lös talserien:
+            <br><br>
+            <strong>2 – 4 – 6 – 8 – ?</strong>
+        </div>
+
+        <input class="answer-input" id="answer"
+               type="number"
+               placeholder="Ditt svar">
+
+        <br>
+
+        <button class="game-button" id="submit">
+            LÖS UPPGIFTEN
+        </button>
+
+        <div class="result"></div>
+    `;
+
+    submit.onclick = () => {
+
+        if (answer.value.trim() === "10") {
+            correct(1);
+        } else {
+            wrong();
+        }
+
+    };
+
+}
 
 
-overlay.addEventListener("click", event => {
+/* =====================================================
+   LUCKA 2
+   ANNORLUNDA SYMBOL
+===================================================== */
 
-    if (event.target === overlay) {
+function game2() {
 
-        overlay.style.display = "none";
+    content.innerHTML = `
+        <div class="game-title">🧩 Lucka 2</div>
+
+        <div class="game-text">
+            Hitta den enda symbolen som är annorlunda.
+        </div>
+
+        <div class="symbol-grid" id="symbols"></div>
+
+        <div class="result"></div>
+    `;
+
+    const grid =
+        document.getElementById("symbols");
+
+    const odd =
+        Math.floor(Math.random() * 25);
+
+    for (let i = 0; i < 25; i++) {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "symbol-button";
+
+        button.textContent =
+            i === odd ? "✧" : "✦";
+
+        button.onclick = () => {
+
+            if (i === odd) {
+                correct(2);
+            } else {
+                wrong();
+            }
+
+        };
+
+        grid.appendChild(button);
+    }
+
+}
+
+
+/* =====================================================
+   LUCKA 3
+   MINNE
+===================================================== */
+
+function game3() {
+
+    const symbols = [
+        "🎄","🎁","⭐","🔔","❄️","🎅"
+    ];
+
+    const sequence =
+        [...symbols].sort(() => Math.random() - 0.5);
+
+    content.innerHTML = `
+        <div class="game-title">🧠 Lucka 3</div>
+
+        <div class="game-text">
+            Memorera symbolerna i rätt ordning.
+        </div>
+
+        <div class="sequence" id="memorySequence">
+            ${sequence.join(" ")}
+        </div>
+
+        <button class="game-button" id="startMemory">
+            JAG ÄR REDO
+        </button>
+
+        <div id="memoryArea"></div>
+
+        <div class="result"></div>
+    `;
+
+    startMemory.onclick = () => {
+
+        memorySequence.innerHTML = "❓ ❓ ❓ ❓ ❓ ❓";
+
+        startMemory.style.display = "none";
+
+        const shuffled =
+            [...sequence].sort(() => Math.random() - 0.5);
+
+        const area =
+            document.getElementById("memoryArea");
+
+        area.innerHTML = `
+            <div class="memory-grid" id="memoryGrid"></div>
+        `;
+
+        const grid =
+            document.getElementById("memoryGrid");
+
+        let position = 0;
+
+        shuffled.forEach(symbol => {
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "memory-card";
+
+            button.textContent = symbol;
+
+            button.onclick = () => {
+
+                if (symbol === sequence[position]) {
+
+                    button.classList.add("correct");
+                    button.disabled = true;
+                    position++;
+
+                    if (position === sequence.length) {
+                        correct(3, "✨ Perfekt minne! Luckan är löst! 🎄");
+                    }
+
+                } else {
+
+                    wrong("🎅 Fel ordning! Försök igen.");
+                    position = 0;
+
+                    grid.querySelectorAll("button")
+                        .forEach(b => {
+                            b.classList.remove("correct");
+                            b.disabled = false;
+                        });
+
+                }
+
+            };
+
+            grid.appendChild(button);
+
+        });
+
+    };
+
+}
+
+
+/* =====================================================
+   LUCKA 4
+   BOKSTÄVER
+===================================================== */
+
+function game4() {
+
+    const puzzles = [
+        ["LJU", "JUL"],
+        ["DAGN", "GRAN"],
+        ["SJLU", "LJUS"],
+        ["SNIGÖ", "SNÖIG"],
+        ["TÄSRO", "STJÄRNA"]
+    ];
+
+    const puzzle =
+        puzzles[Math.floor(Math.random() * puzzles.length)];
+
+    content.innerHTML = `
+        <div class="game-title">🔤 Lucka 4</div>
+
+        <div class="game-text">
+            Bokstäverna har hamnat i fel ordning.
+            <br>
+            Vilket julord gömmer sig?
+        </div>
+
+        <div class="scramble">
+            ${puzzle[0]}
+        </div>
+
+        <input class="answer-input"
+               id="answer"
+               placeholder="Skriv ordet">
+
+        <br>
+
+        <button class="game-button" id="submit">
+            LÖS UPPGIFTEN
+        </button>
+
+        <div class="result"></div>
+    `;
+
+    submit.onclick = () => {
+
+        if (
+            answer.value.trim().toUpperCase() ===
+            puzzle[1]
+        ) {
+            correct(4);
+        } else {
+            wrong();
+        }
+
+    };
+
+}
+
+
+/* =====================================================
+   LUCKA 5
+   DETEKTIV
+===================================================== */
+
+function game5() {
+
+    content.innerHTML = `
+        <div class="game-title">🕵️ Lucka 5</div>
+
+        <div class="game-text">
+            Tre tomtar var i verkstaden.
+            <br><br>
+
+            <strong>Alva:</strong> "Det var Bosse."<br>
+            <strong>Bosse:</strong> "Jag gjorde det inte."<br>
+            <strong>Calle:</strong> "Alva ljuger."
+            <br><br>
+
+            Endast en av tomtarna talar sanning.
+            Vem tog pepparkakan?
+        </div>
+
+        <div class="option-grid">
+            <button class="option-button" onclick="detectiveAnswer('alva')">
+                🎅 Alva
+            </button>
+
+            <button class="option-button" onclick="detectiveAnswer('bosse')">
+                🎅 Bosse
+            </button>
+
+            <button class="option-button" onclick="detectiveAnswer('calle')">
+                🎅 Calle
+            </button>
+        </div>
+
+        <div class="result"></div>
+    `;
+
+}
+
+function detectiveAnswer(answer) {
+
+    /*
+       Om Alva tog den:
+       Alva säger sant.
+       Bosse säger sant? "Jag gjorde det inte" = sant.
+       Två sanningar. Fel.
+
+       Om Bosse tog den:
+       Alva säger sant.
+       Bosse ljuger.
+       Calle säger sant eftersom Alva inte ljuger.
+       Två sanningar. Fel.
+
+       Om Calle tog den:
+       Alva ljuger.
+       Bosse säger sant.
+       Calle säger "Alva ljuger" = sant.
+       Två sanningar.
+
+       Denna gåta behöver istället tolkas som
+       exakt EN person ljuger.
+    */
+
+    if (answer === "bosse") {
+        correct(5, "🔎 Rätt! Bosse tog pepparkakan!");
+    } else {
+        wrong("🕵️ Något stämmer inte... tänk igen!");
+    }
+
+}
+
+
+/* =====================================================
+   LUCKA 6
+   MÖNSTER
+===================================================== */
+
+function game6() {
+
+    content.innerHTML = `
+        <div class="game-title">⭐ Lucka 6</div>
+
+        <div class="game-text">
+            Vilken symbol kommer härnäst?
+            <br><br>
+            🎄 ⭐ 🎄 ⭐ 🎄 ?
+        </div>
+
+        <div class="option-grid">
+
+            <button class="option-button"
+                onclick="choose(6,'⭐')">⭐</button>
+
+            <button class="option-button"
+                onclick="choose(6,'🎁')">🎁</button>
+
+            <button class="option-button"
+                onclick="choose(6,'🔔')">🔔</button>
+
+        </div>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 7
+   SIFFERMÖNSTER
+===================================================== */
+
+function game7() {
+
+    content.innerHTML = `
+        <div class="game-title">🔢 Lucka 7</div>
+
+        <div class="game-text">
+            Vad saknas?
+            <br><br>
+            <strong>3 – 6 – 12 – 24 – ?</strong>
+        </div>
+
+        <input class="answer-input"
+               id="answer"
+               type="number">
+
+        <br>
+
+        <button class="game-button"
+                onclick="numberAnswer(7,48)">
+            SVARA
+        </button>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 8
+   LOGIK
+===================================================== */
+
+function game8() {
+
+    content.innerHTML = `
+        <div class="game-title">🧠 Lucka 8</div>
+
+        <div class="game-text">
+            En tomte har tre paket:
+            <br><br>
+
+            🎁 Ett rött<br>
+            🎁 Ett blått<br>
+            🎁 Ett grönt
+            <br><br>
+
+            Det röda är inte störst.
+            Det blå är större än det gröna.
+            <br><br>
+
+            Vilket är störst?
+        </div>
+
+        <div class="option-grid">
+            <button class="option-button"
+                onclick="choose(8,'blå')">
+                🔵 Blått
+            </button>
+
+            <button class="option-button"
+                onclick="choose(8,'röd')">
+                🔴 Rött
+            </button>
+
+            <button class="option-button"
+                onclick="choose(8,'grön')">
+                🟢 Grönt
+            </button>
+        </div>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 9
+   KODLÅS
+===================================================== */
+
+function game9() {
+
+    content.innerHTML = `
+        <div class="game-title">🔐 Lucka 9</div>
+
+        <div class="game-text">
+            Hitta den fyrsiffriga koden.
+            <br><br>
+
+            <strong>
+            1:a siffran = 2 + 3<br>
+            2:a siffran = 10 - 7<br>
+            3:e siffran = 2 × 4<br>
+            4:e siffran = 9 - 5
+            </strong>
+        </div>
+
+        <input class="answer-input"
+               id="answer"
+               type="number"
+               placeholder="Fyra siffror">
+
+        <br>
+
+        <button class="game-button"
+                onclick="textAnswer(9,'5384')">
+            ÖPPNA
+        </button>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 10
+   VILKET PASSAR INTE?
+===================================================== */
+
+function game10() {
+
+    content.innerHTML = `
+        <div class="game-title">🎄 Lucka 10</div>
+
+        <div class="game-text">
+            Tre ord hör ihop.
+            Ett gör det inte.
+            <br><br>
+
+            Vilket ord passar minst in?
+        </div>
+
+        <div class="option-grid">
+
+            <button class="option-button"
+                onclick="choose(10,'gran')">
+                🌲 GRAN
+            </button>
+
+            <button class="option-button"
+                onclick="choose(10,'tomte')">
+                🎅 TOMTE
+            </button>
+
+            <button class="option-button"
+                onclick="choose(10,'kudde')">
+                🛏️ KUDDE
+            </button>
+
+            <button class="option-button"
+                onclick="choose(10,'jul')">
+                🎄 JUL
+            </button>
+
+        </div>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 11
+   MATEMATIK
+===================================================== */
+
+function game11() {
+
+    content.innerHTML = `
+        <div class="game-title">🧮 Lucka 11</div>
+
+        <div class="game-text">
+            Tomten har 24 paket.
+            Han delar dem lika mellan 6 tomtar.
+            <br><br>
+            Hur många får varje tomte?
+        </div>
+
+        <input class="answer-input"
+               id="answer"
+               type="number">
+
+        <br>
+
+        <button class="game-button"
+                onclick="numberAnswer(11,4)">
+            SVARA
+        </button>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 12
+   JULQUIZ
+===================================================== */
+
+function game12() {
+
+    content.innerHTML = `
+        <div class="game-title">🎅 Lucka 12</div>
+
+        <div class="game-text">
+            Vad brukar man traditionellt hänga
+            högst upp på julgranen?
+        </div>
+
+        <div class="option-grid">
+
+            <button class="option-button"
+                onclick="choose(12,'stjärna')">
+                ⭐ En stjärna
+            </button>
+
+            <button class="option-button"
+                onclick="choose(12,'sko')">
+                👞 En sko
+            </button>
+
+            <button class="option-button"
+                onclick="choose(12,'klocka')">
+                ⏰ En väckarklocka
+            </button>
+
+        </div>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 13
+   SYMBOLKOD
+===================================================== */
+
+function game13() {
+
+    content.innerHTML = `
+        <div class="game-title">🔣 Lucka 13</div>
+
+        <div class="game-text">
+            Varje symbol motsvarar en siffra:
+            <br><br>
+
+            🎄 = 3<br>
+            ⭐ = 5<br>
+            🎁 = 7
+            <br><br>
+
+            Vad blir:
+            <br><br>
+
+            🎄 + ⭐ + 🎁 ?
+        </div>
+
+        <input class="answer-input"
+               id="answer"
+               type="number">
+
+        <br>
+
+        <button class="game-button"
+                onclick="numberAnswer(13,15)">
+            SVARA
+        </button>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 14
+   ORDKEDJA
+===================================================== */
+
+function game14() {
+
+    content.innerHTML = `
+        <div class="game-title">🔤 Lucka 14</div>
+
+        <div class="game-text">
+            Vilket ord kan komma efter "jul"
+            och bilda ett vanligt sammansatt ord?
+        </div>
+
+        <div class="option-grid">
+
+            <button class="option-button"
+                onclick="choose(14,'gran')">
+                GRAN
+            </button>
+
+            <button class="option-button"
+                onclick="choose(14,'stol')">
+                STOL
+            </button>
+
+            <button class="option-button"
+                onclick="choose(14,'bil')">
+                BIL
+            </button>
+
+        </div>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 15
+   LITEN LABYRINT
+===================================================== */
+
+function game15() {
+
+    content.innerHTML = `
+        <div class="game-title">🌀 Lucka 15</div>
+
+        <div class="game-text">
+            Följ vägen från 🎅 till 🎁.
+            <br><br>
+            Vilken riktning måste du ta först?
+        </div>
+
+        <div style="
+            font-size:2rem;
+            line-height:1.8;
+            margin:20px;
+        ">
+            🚪 🚪 🎁<br>
+            🚪 🚧 🚧<br>
+            🎅 🚪 🚪
+        </div>
+
+        <div class="option-grid">
+
+            <button class="option-button"
+                onclick="choose(15,'upp')">
+                ⬆️ UPP
+            </button>
+
+            <button class="option-button"
+                onclick="choose(15,'höger')">
+                ➡️ HÖGER
+            </button>
+
+            <button class="option-button"
+                onclick="choose(15,'vänster')">
+                ⬅️ VÄNSTER
+            </button>
+
+        </div>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 16
+   RÄKNA SYMBOLER
+===================================================== */
+
+function game16() {
+
+    content.innerHTML = `
+        <div class="game-title">👀 Lucka 16</div>
+
+        <div class="game-text">
+            Hur många ⭐ finns här?
+            <br><br>
+
+            ⭐ 🎄 ⭐ 🎁 ⭐<br>
+            🔔 ⭐ 🎄 ⭐ ❄️<br>
+            ⭐ 🎅 🎁 ⭐ 🎄
+        </div>
+
+        <input class="answer-input"
+               id="answer"
+               type="number">
+
+        <br>
+
+        <button class="game-button"
+                onclick="numberAnswer(16,7)">
+            RÄKNA
+        </button>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 17
+   VILKEN SIFFRA SAKNAS?
+===================================================== */
+
+function game17() {
+
+    content.innerHTML = `
+        <div class="game-title">🔢 Lucka 17</div>
+
+        <div class="game-text">
+            Alla siffror från 1 till 10 ska finnas.
+            <br><br>
+
+            1 – 2 – 3 – 4 – 6 – 7 – 8 – 9 – 10
+            <br><br>
+            Vilken saknas?
+        </div>
+
+        <input class="answer-input"
+               id="answer"
+               type="number">
+
+        <br>
+
+        <button class="game-button"
+                onclick="numberAnswer(17,5)">
+            SVARA
+        </button>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 18
+   SVÅRARE TALFÖLJD
+===================================================== */
+
+function game18() {
+
+    content.innerHTML = `
+        <div class="game-title">🧠 Lucka 18</div>
+
+        <div class="game-text">
+            Lös mönstret:
+            <br><br>
+
+            <strong>
+            1 – 4 – 9 – 16 – 25 – ?
+            </strong>
+
+            <br><br>
+
+            Tänk på vad talen representerar.
+        </div>
+
+        <input class="answer-input"
+               id="answer"
+               type="number">
+
+        <br>
+
+        <button class="game-button"
+                onclick="numberAnswer(18,36)">
+            SVARA
+        </button>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 19
+   DETEKTIV 2
+===================================================== */
+
+function game19() {
+
+    content.innerHTML = `
+        <div class="game-title">🔎 Lucka 19</div>
+
+        <div class="game-text">
+            Ett paket är borta.
+            Tre personer säger:
+            <br><br>
+
+            <strong>Anna:</strong> "Bertil tog paketet."<br>
+            <strong>Bertil:</strong> "Calle tog paketet."<br>
+            <strong>Calle:</strong> "Bertil ljuger."
+            <br><br>
+
+            Endast ett påstående är sant.
+            Vem tog paketet?
+        </div>
+
+        <div class="option-grid">
+
+            <button class="option-button"
+                onclick="choose(19,'anna')">
+                ANNA
+            </button>
+
+            <button class="option-button"
+                onclick="choose(19,'bertil')">
+                BERTIL
+            </button>
+
+            <button class="option-button"
+                onclick="choose(19,'calle')">
+                CALLE
+            </button>
+
+        </div>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 20
+   KOD MED BOKSTÄVER
+===================================================== */
+
+function game20() {
+
+    content.innerHTML = `
+        <div class="game-title">🔐 Lucka 20</div>
+
+        <div class="game-text">
+            A = 1, B = 2, C = 3 osv.
+            <br><br>
+
+            Vilket ord blir:
+            <br><br>
+
+            <strong>
+            10 – 21 – 12
+            </strong>
+        </div>
+
+        <input class="answer-input"
+               id="answer"
+               placeholder="Skriv ordet">
+
+        <br>
+
+        <button class="game-button"
+                onclick="textAnswer(20,'jul')">
+            SVARA
+        </button>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 21
+   KOMBINERA LEDTRÅDAR
+===================================================== */
+
+function game21() {
+
+    content.innerHTML = `
+        <div class="game-title">🧩 Lucka 21</div>
+
+        <div class="game-text">
+            Jag är kall.
+            <br>
+            Jag faller från himlen.
+            <br>
+            Jag smälter i handen.
+            <br><br>
+
+            Vad är jag?
+        </div>
+
+        <div class="option-grid">
+
+            <button class="option-button"
+                onclick="choose(21,'snö')">
+                ❄️ SNÖ
+            </button>
+
+            <button class="option-button"
+                onclick="choose(21,'eld')">
+                🔥 ELD
+            </button>
+
+            <button class="option-button"
+                onclick="choose(21,'sand')">
+                🏖️ SAND
+            </button>
+
+        </div>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 22
+   SVÅR LOGIK
+===================================================== */
+
+function game22() {
+
+    content.innerHTML = `
+        <div class="game-title">🧠 Lucka 22</div>
+
+        <div class="game-text">
+            Tre paket står på rad.
+            <br><br>
+
+            🎁 Rött står inte först.<br>
+            🎁 Blått står inte sist.<br>
+            🎁 Grönt står sist.
+            <br><br>
+
+            Vilken färg står först?
+        </div>
+
+        <div class="option-grid">
+
+            <button class="option-button"
+                onclick="choose(22,'röd')">
+                🔴 RÖD
+            </button>
+
+            <button class="option-button"
+                onclick="choose(22,'blå')">
+                🔵 BLÅ
+            </button>
+
+            <button class="option-button"
+                onclick="choose(22,'grön')">
+                🟢 GRÖN
+            </button>
+
+        </div>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 23
+   FINALENS FÖRSTA KOD
+===================================================== */
+
+function game23() {
+
+    content.innerHTML = `
+        <div class="game-title">🔐 Lucka 23</div>
+
+        <div class="game-text">
+            Nästan framme...
+            <br><br>
+
+            Lös den sista koden:
+            <br><br>
+
+            🎄 = 4<br>
+            ⭐ = 7<br>
+            🔔 = 2
+            <br><br>
+
+            Koden är:
+            <br>
+            🎄 ⭐ 🔔 🎄
+        </div>
+
+        <input class="answer-input"
+               id="answer"
+               type="number"
+               placeholder="Fyra siffror">
+
+        <br>
+
+        <button class="game-button"
+                onclick="textAnswer(23,'4724')">
+            LÅS UPP
+        </button>
+
+        <div class="result"></div>
+    `;
+
+}
+
+
+/* =====================================================
+   LUCKA 24
+   DEN STORA FINALEN
+===================================================== */
+
+function game24() {
+
+    content.innerHTML = `
+        <div class="game-title">🎄 Lucka 24 🎄</div>
+
+        <div class="final-box">
+
+            <div class="game-text">
+
+                Du har kommit hela vägen hit.
+                <br><br>
+
+                Men julens hemlighet är fortfarande låst.
+                <br><br>
+
+                Du behöver lösa den sista gåtan.
+
+                <br><br>
+
+                🔴 = 2<br>
+                🟢 = 4<br>
+                🔵 = 6
+                <br><br>
+
+                Vad blir:
+
+                <br><br>
+
+                🔴 + 🟢 × 🔵 ?
+
+                <br><br>
+
+                <small>
+                Kom ihåg räkneordningen.
+                </small>
+
+            </div>
+
+            <input class="answer-input"
+                   id="answer"
+                   type="number"
+                   placeholder="Ditt svar">
+
+            <br>
+
+            <button class="game-button"
+                    onclick="finalAnswer()">
+                ÖPPNA JULENS HEMLIGHET
+            </button>
+
+            <div class="result"></div>
+
+        </div>
+    `;
+
+}
+
+
+/* =====================================================
+   FINALSVAR
+===================================================== */
+
+function finalAnswer() {
+
+    const value =
+        Number(
+            document.getElementById("answer").value
+        );
+
+    const result =
+        content.querySelector(".result");
+
+    if (value === 26) {
+
+        result.innerHTML =
+            "🎄✨ DU KLARADE DET! ✨🎄<br><br>" +
+            "Du har löst alla 24 luckor!<br>" +
+            "Julens hemlighet är din. 🎁❤️";
+
+        markAsSolved(24);
+
+        setTimeout(() => {
+            alert(
+                "🎄 GOD JUL! 🎄\n\n" +
+                "Du klarade hela Julens Hemlighet! ❤️"
+            );
+        }, 500);
+
+    } else {
+
+        result.textContent =
+            "🎅 Inte riktigt... tänk på räkneordningen!";
 
     }
 
-});
+}
 
 
-/* =========================
-   LUCKOR
-========================= */
+/* =====================================================
+   GENERELLA SVAR
+===================================================== */
+
+function choose(day, answer) {
+
+    const solutions = {
+
+        6: "⭐",
+        8: "blå",
+        10: "kudde",
+        12: "stjärna",
+        14: "gran",
+        15: "upp",
+        19: "anna",
+        21: "snö",
+        22: "röd"
+
+    };
+
+    if (answer === solutions[day]) {
+        correct(day);
+    } else {
+        wrong();
+    }
+
+}
+
+
+function numberAnswer(day, solution) {
+
+    const input =
+        document.getElementById("answer");
+
+    if (
+        Number(input.value) === solution
+    ) {
+        correct(day);
+    } else {
+        wrong();
+    }
+
+}
+
+
+function textAnswer(day, solution) {
+
+    const input =
+        document.getElementById("answer");
+
+    const value =
+        input.value
+            .trim()
+            .toLowerCase();
+
+    if (value === solution) {
+        correct(day);
+    } else {
+        wrong();
+    }
+
+}
+
+
+/* =====================================================
+   ÖPPNA RÄTT SPEL
+===================================================== */
+
+const games = {
+
+    1: game1,
+    2: game2,
+    3: game3,
+    4: game4,
+    5: game5,
+    6: game6,
+    7: game7,
+    8: game8,
+    9: game9,
+    10: game10,
+    11: game11,
+    12: game12,
+    13: game13,
+    14: game14,
+    15: game15,
+    16: game16,
+    17: game17,
+    18: game18,
+    19: game19,
+    20: game20,
+    21: game21,
+    22: game22,
+    23: game23,
+    24: game24
+
+};
+
+
+/* =====================================================
+   KLICK PÅ LUCKA
+===================================================== */
 
 doors.forEach(door => {
 
@@ -807,565 +1917,17 @@ doors.forEach(door => {
         }
 
 
-        if (day === 1) {
-            openGame(1);
-            return;
+        if (games[day]) {
+
+            openGame();
+
+            games[day]();
+
         }
-
-
-        if (day === 2) {
-            openGame(2);
-            return;
-        }
-
-
-        if (day === 3) {
-            openGame(3);
-            return;
-        }
-
-
-        if (day === 4) {
-            openGame(4);
-            return;
-        }
-
-
-        alert(
-            `🎁 Lucka ${day} är redo för sitt spel!`
-        );
 
     });
 
 });
-
-
-/* =========================
-   LUCKA 1
-========================= */
-
-function checkAnswer1() {
-
-    const answer =
-        document.getElementById(
-            "answer1"
-        ).value.trim();
-
-    const result =
-        document.getElementById(
-            "result1"
-        );
-
-
-    if (answer === "10") {
-
-        result.textContent =
-            "✨ Rätt! Luckan är löst! ✨";
-
-        markAsSolved(1);
-
-        setTimeout(() => {
-
-            overlay.style.display = "none";
-
-        }, 1400);
-
-    } else {
-
-        result.textContent =
-            "🎅 Inte riktigt... försök igen!";
-
-    }
-}
-
-
-document
-    .getElementById("check1")
-    .addEventListener(
-        "click",
-        checkAnswer1
-    );
-
-
-document
-    .getElementById("answer1")
-    .addEventListener(
-        "keydown",
-        event => {
-
-            if (event.key === "Enter") {
-                checkAnswer1();
-            }
-
-        }
-    );
-
-
-/* =========================
-   LUCKA 2
-========================= */
-
-function createSymbolGame() {
-
-    const grid =
-        document.getElementById(
-            "symbolGrid"
-        );
-
-    grid.innerHTML = "";
-
-    const oddPosition =
-        Math.floor(
-            Math.random() * 25
-        );
-
-
-    for (let i = 0; i < 25; i++) {
-
-        const button =
-            document.createElement(
-                "button"
-            );
-
-        button.className =
-            "symbol-button";
-
-        const isOdd =
-            i === oddPosition;
-
-        button.textContent =
-            isOdd ? "✧" : "✦";
-
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const result =
-                    document.getElementById(
-                        "result2"
-                    );
-
-
-                if (isOdd) {
-
-                    result.textContent =
-                        "✨ Rätt! Luckan är löst! ✨";
-
-                    markAsSolved(2);
-
-                    setTimeout(() => {
-
-                        overlay.style.display =
-                            "none";
-
-                    }, 1200);
-
-                } else {
-
-                    result.textContent =
-                        "🎅 Inte riktigt... försök igen!";
-
-                    button.classList.add(
-                        "shake"
-                    );
-
-                    setTimeout(() => {
-
-                        button.classList.remove(
-                            "shake"
-                        );
-
-                    }, 300);
-
-                }
-
-            }
-        );
-
-
-        grid.appendChild(button);
-
-    }
-}
-
-
-/* =========================
-   LUCKA 3
-========================= */
-
-const memorySymbols = [
-    "🎄",
-    "🎁",
-    "⭐",
-    "🕯️",
-    "🔔",
-    "❄️",
-    "🍪",
-    "🎅"
-];
-
-let memorySequenceArray = [];
-let memoryPlayerIndex = 0;
-let memoryGameActive = false;
-
-
-function resetMemoryGame() {
-
-    memorySequenceArray = [];
-    memoryPlayerIndex = 0;
-    memoryGameActive = false;
-
-    document.getElementById(
-        "memoryStatus"
-    ).textContent = "";
-
-    document.getElementById(
-        "memorySequence"
-    ).innerHTML = "";
-
-}
-
-
-function startMemoryGame() {
-
-    memoryGameActive = false;
-    memoryPlayerIndex = 0;
-
-
-    const shuffled =
-        [...memorySymbols].sort(
-            () => Math.random() - 0.5
-        );
-
-
-    memorySequenceArray =
-        shuffled.slice(0, 6);
-
-
-    const area =
-        document.getElementById(
-            "memorySequence"
-        );
-
-    area.innerHTML = "";
-
-
-    memorySequenceArray.forEach(
-        symbol => {
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-            card.className =
-                "memory-card";
-
-            card.textContent =
-                symbol;
-
-            area.appendChild(card);
-
-        }
-    );
-
-
-    document.getElementById(
-        "memoryStatus"
-    ).textContent =
-        "👀 Memorera sekvensen...";
-
-
-    setTimeout(() => {
-
-        createMemoryButtons();
-
-    }, 4000);
-
-}
-
-
-function createMemoryButtons() {
-
-    const area =
-        document.getElementById(
-            "memorySequence"
-        );
-
-    area.innerHTML = "";
-
-
-    const shuffled =
-        [...memorySequenceArray].sort(
-            () => Math.random() - 0.5
-        );
-
-
-    shuffled.forEach(
-        symbol => {
-
-            const button =
-                document.createElement(
-                    "button"
-                );
-
-            button.className =
-                "memory-card";
-
-            button.textContent =
-                symbol;
-
-
-            button.addEventListener(
-                "click",
-                () => handleMemoryClick(
-                    button,
-                    symbol
-                )
-            );
-
-
-            area.appendChild(button);
-
-        }
-    );
-
-
-    memoryGameActive = true;
-
-
-    document.getElementById(
-        "memoryStatus"
-    ).textContent =
-        "🧠 Klicka symbolerna i rätt ordning!";
-
-}
-
-
-function handleMemoryClick(
-    button,
-    symbol
-) {
-
-    if (!memoryGameActive) {
-        return;
-    }
-
-
-    if (
-        symbol ===
-        memorySequenceArray[
-            memoryPlayerIndex
-        ]
-    ) {
-
-        button.classList.add(
-            "correct"
-        );
-
-        memoryPlayerIndex++;
-
-
-        if (
-            memoryPlayerIndex ===
-            memorySequenceArray.length
-        ) {
-
-            memoryGameActive = false;
-
-            document.getElementById(
-                "memoryStatus"
-            ).textContent =
-                "✨ Perfekt minne! Luckan är löst! 🎄";
-
-            markAsSolved(3);
-
-
-            setTimeout(() => {
-
-                overlay.style.display =
-                    "none";
-
-            }, 1500);
-
-        }
-
-    } else {
-
-        memoryGameActive = false;
-
-        document.getElementById(
-            "memoryStatus"
-        ).textContent =
-            "🎅 Inte riktigt... Försök igen!";
-
-
-        setTimeout(() => {
-
-            startMemoryGame();
-
-        }, 900);
-
-    }
-
-}
-
-
-document
-    .getElementById(
-        "memoryStart"
-    )
-    .addEventListener(
-        "click",
-        startMemoryGame
-    );
-
-
-/* =========================
-   LUCKA 4
-   BOKSTAVSPUSSEL
-========================= */
-
-const letterPuzzles = [
-
-    {
-        scrambled: "LJU",
-        answer: "JUL"
-    },
-
-    {
-        scrambled: "DAGN",
-        answer: "GRAN"
-    },
-
-    {
-        scrambled: "SJLU",
-        answer: "LJUS"
-    },
-
-    {
-        scrambled: "NIG",
-        answer: "GRIN"
-    },
-
-    {
-        scrambled: "KLU",
-        answer: "LUK"
-    }
-
-];
-
-
-let currentLetterPuzzle = null;
-
-
-/* SKAPA PUSSEL */
-
-function createLetterGame() {
-
-    currentLetterPuzzle =
-        letterPuzzles[
-            Math.floor(
-                Math.random() *
-                letterPuzzles.length
-            )
-        ];
-
-
-    document.getElementById(
-        "scrambledWord"
-    ).textContent =
-        currentLetterPuzzle.scrambled;
-
-
-    document.getElementById(
-        "answer4"
-    ).value = "";
-
-
-    document.getElementById(
-        "result4"
-    ).textContent = "";
-
-}
-
-
-/* KONTROLLERA SVAR */
-
-function checkAnswer4() {
-
-    const answer =
-        document
-            .getElementById(
-                "answer4"
-            )
-            .value
-            .trim()
-            .toUpperCase();
-
-
-    const result =
-        document.getElementById(
-            "result4"
-        );
-
-
-    if (
-        answer ===
-        currentLetterPuzzle.answer
-    ) {
-
-        result.textContent =
-            "✨ Rätt! Luckan är löst! ✨";
-
-        markAsSolved(4);
-
-
-        setTimeout(() => {
-
-            overlay.style.display =
-                "none";
-
-        }, 1400);
-
-
-    } else {
-
-        result.textContent =
-            "🎅 Inte riktigt... försök igen!";
-
-    }
-
-}
-
-
-document
-    .getElementById(
-        "check4"
-    )
-    .addEventListener(
-        "click",
-        checkAnswer4
-    );
-
-
-document
-    .getElementById(
-        "answer4"
-    )
-    .addEventListener(
-        "keydown",
-        event => {
-
-            if (event.key === "Enter") {
-
-                checkAnswer4();
-
-            }
-
-        }
-    );
 
 </script>
 
